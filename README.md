@@ -1,4 +1,11 @@
-# NFTLyf - Chainlink Fall 2021 Hackathon
+
+
+
+# Requirements: 
+
+- deploy on Mantle testnet https://docs.mantle.xyz/tools-and-sdk/network-faucet
+- host using vercel or netlify 
+
 
 ## Contract address:
 
