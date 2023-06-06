@@ -23,8 +23,8 @@ const MetamaskButton = () => {
         activate(injected, async (error) => {
           console.log(error);
           const hasSetup = await setupNetwork(
-            1666700000,
-            "https://api.s0.b.hmny.io"
+            5001,
+            "https://rpc.testnet.mantle.xyz"
           );
           if (hasSetup) activate(injected);
         });

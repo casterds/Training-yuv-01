@@ -44,7 +44,7 @@ const CharList = (props) => {
   const getTetheredToken = (index) => {
     switch (index) {
       case "0":
-        return "BUSD";
+        return "BIT";
 
       case "1":
         return "DAI";

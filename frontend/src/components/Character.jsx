@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./Character.css";
 import boyImage from "images/adult_boy.svg";
 import girlImage from "images/adult_girl.svg";
-import busd from "images/originals/busd.svg";
+import bit from "images/originals/bit.svg";
 import dai from "images/originals/dai.svg";
 import eth from "images/originals/ethereum.svg";
 import har from "images/originals/harmony.svg";
@@ -64,9 +64,11 @@ export default function Character() {
   };
 
   const buyFunc = () => {
+    debugger
     if (!selectedChar[0] && !selectedChar[1]) {
       alert("choose a character");
     } else if (!cselected) {
+      console.log(cselected);
       alert("choose a token");
     } else if (!newCharName) {
       alert("Enter a name for new Character");
@@ -240,14 +242,14 @@ export default function Character() {
           >
             <div className="crypto-logo">
               <img
-                src={busd}
+                src={dai}
                 className="crypto-logo-image"
                 alt=""
-                id="img-busd"
+                id="img-dai"
               ></img>
             </div>
-            <div className="crypto-name" id="name-busd">
-              BUSD
+            <div className="crypto-name" id="name-dai">
+              DAI
             </div>
           </button>
           <button
@@ -259,14 +261,14 @@ export default function Character() {
           >
             <div className="crypto-logo">
               <img
-                src={dai}
+                src={bit}
                 className="crypto-logo-image"
                 alt=""
-                id="img-dai"
+                id="img-bit"
               ></img>
             </div>
-            <div className="crypto-name" id="name-dai">
-              DAI
+            <div className="crypto-name" id="name-bit">
+              bit
             </div>
           </button>
           <button

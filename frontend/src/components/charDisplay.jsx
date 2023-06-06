@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./charDisplay.css";
 import boyImage from "images/adult_boy.svg";
 import girlImage from "images/adult_girl.svg";
-import busd from "images/originals/busd.svg";
+import bit from "images/originals/bit.svg";
 import dai from "images/originals/dai.svg";
 import eth from "images/originals/ethereum.svg";
 import har from "images/originals/harmony.svg";
@@ -41,8 +41,8 @@ const CharDisp = (props) => {
   };
 
   switch (props.token) {
-    case "BUSD":
-      token = busd;
+    case "BIT":
+      token = bit;
       imgstyle.filter = "drop-shadow(0 0 15px #f0b90b)";
       textstyle.color = "#f0b90b";
       textstyle.textShadow = "#ffd95d 0px 0 20px";

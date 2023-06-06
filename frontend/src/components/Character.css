@@ -273,6 +273,16 @@
 
 /* individual logo styling  */
 
+.button-press #name-bit,
+.button-press:hover #name-bit {
+	color: #d2ff07;
+	text-shadow: #d2ff07 0px 0 20px;
+}
+
+.button-press #img-bit {
+	filter: grayscale(0%) opacity(100%) drop-shadow(0 0 15px #d2ff07);
+}
+
 .button-press #name-busd,
 .button-press:hover #name-busd {
 	color: #f0b90b;
@@ -282,6 +292,7 @@
 .button-press #img-busd {
 	filter: grayscale(0%) opacity(100%) drop-shadow(0 0 15px #f0b90b);
 }
+
 
 .button-press #name-dai,
 .button-press:hover #name-dai {

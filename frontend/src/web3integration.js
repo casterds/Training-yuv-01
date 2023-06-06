@@ -13,22 +13,22 @@ export const connectContracts = (signer) => {
   // const registryAbi = [];
 
   playerContract = new Contract(
-    "0x073006ec3686Bbcd8aF614e86a2C19EAeA675257",
+    "0xE8F4d23aB2c59382f5A49CBBfE5668aFa33dF1a2",
     playerAbi,
     signer
   );
   wagesContract = new Contract(
-    "0x2a696b7E45E7336760c819d4A63E948a795b5fEA",
+    "0xB537cBFbbBC3b0Dd4C5994460f13A466f0CF363B",
     wageAbi,
     signer
   );
   // priceContract = new Contract(
-  //   "0x4CAE8115DcF3E44Be56e539951339B87A14e5e49",
+  //   "0x06502A1b2cC2417f05485EC4dFc7D8eCF0b944e7",
   //   priceAbi,
   //   signer
   // );
   // registryContract = new Contract(
-  //   "0xcd3a327D992DFDd19f5e8b4EA86d235C1E473661",
+  //   "0xE034714bdd3176D7C7f3b4Dc931e0867309589e6",
   //   registryAbi,
   //   signer
   // );
