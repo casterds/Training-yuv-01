@@ -64,7 +64,6 @@ export default function Character() {
   };
 
   const buyFunc = () => {
-    debugger
     if (!selectedChar[0] && !selectedChar[1]) {
       alert("choose a character");
     } else if (!cselected) {

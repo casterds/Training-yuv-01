@@ -13,7 +13,7 @@ export const connectContracts = (signer) => {
   // const registryAbi = [];
 
   playerContract = new Contract(
-    "0xE8F4d23aB2c59382f5A49CBBfE5668aFa33dF1a2",
+    "0xe36793B784C9F95e60DCDEc177B2F4b09B77D9dE",
     playerAbi,
     signer
   );
@@ -41,7 +41,10 @@ export const connectContracts = (signer) => {
   store.dispatch(setWagesContract(wagesContract));
 
   wagesContract.on("SalaryRetrieved", (user, tokenId, amount) => {
-    updateCharacterInfo({ token: tokenId, lastSalary: new Date() });
+    var data = localStorage.getItem(tokenId)
+    data.lastSalary = new Date()
+    localStorage.setItem(tokenId, data);
+    // updateCharacterInfo({ token: tokenId, lastSalary: new Date() });
   });
 };
 
@@ -58,9 +61,7 @@ export const approve = (toAddress, tokenId) => {
 
 export const balanceOf = async (address) => {
   try {
-    const res = await playerContract.balanceOf(address).then((res) => {
-      return parseInt(res.toString());
-    });
+    const res = parseInt(await playerContract.balanceOf(address))
     return res;
   } catch (error) {
     console.log(error);
@@ -136,11 +137,17 @@ export const mate = (tokenId, partnerTokenId) => {
 
 export const mint = async (isMale, tetheredToken, name) => {
   try {
+    var estimateGas = await playerContract.estimateGas.mint(isMale, tetheredToken, {
+      value: Math.pow(10, 18).toString(),
+    });
+    debugger
     const tx = await playerContract.mint(isMale, tetheredToken, {
       value: Math.pow(10, 18).toString(),
     });
     const receipt = await tx.wait();
-    addCharacter(name, receipt.events[0].args[2].toString());
+    var _tokenId = parseInt(receipt.events[0].args[2])
+    var myObject = {token_id: _tokenId,name: name,lastMated: null, lastFed: null, lastSalary: null}
+    localStorage.setItem(_tokenId, JSON.stringify(myObject));
   } catch (error) {
     console.log(error);
   }

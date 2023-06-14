@@ -49,7 +49,17 @@ export default function MatingCharCard(props) {
         }
       }}
     >
-      <img src={manImage} alt="boy" height="90px" />
+      {props.gender === "male" ? <img
+              src={adultBoy}
+              className="boy-image image-animate"
+              alt="male"
+            ></img>
+            : <img
+            src={adultGirl}
+            className="girl-image image-animate"
+            alt="female"
+          ></img> 
+     }
       <h4 className="MatingCharCard-name">{props.name}</h4>
       <Hunger width={125} height={10} percent={props.percent} />
       <div className="MatingCharCard-health">

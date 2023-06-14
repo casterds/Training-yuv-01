@@ -4,7 +4,7 @@ export const setupNetwork = async (chainId, rpcUrl) => {
   try {
     const provider = await injected.getProvider();
     try {
-      provider.request({
+      await provider.request({
         method: "wallet_switchEthereumChain",
         params: [{ chainId: `0x${chainId.toString(16)}` }],
       });
@@ -14,7 +14,18 @@ export const setupNetwork = async (chainId, rpcUrl) => {
         try {
           provider.request({
             method: "wallet_addEthereumChain",
-            params: [{ chainId: `0x${chainId.toString(16)}`, rpcUrl }],
+            params: [{
+              chainId: `0x${(chainId).toString(16)}`,
+              rpcUrls: [rpcUrl],
+              chainName: "Mantle Testnet",
+              nativeCurrency: {
+                name: "MNT",
+                symbol: "MNT",
+                decimals: 18
+              },
+              blockExplorerUrls: ["https://explorer.testnet.mantle.xyz/"]
+              
+            }],
           });
         } catch (addError) {
           // handle "add" error

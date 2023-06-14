@@ -36,7 +36,8 @@ export default function Mating() {
         const info = await getPlayerInfo(parseInt(val.toString())).then(
           (info) => info
         );
-        const name = await fetchCharacter(val.toString());
+        var data = localStorage.getItem(parseInt(val.toString()));
+        const name = await data.name;
         const cid = await tokenUri(val.toString());
         setCharList((prev) => [
           ...prev,

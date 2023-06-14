@@ -55,7 +55,17 @@ const CharacterCard = (props) => {
   return (
     <div>
       <div className="wallet-char-item">
-        <img src={manImage} alt="boy" height="90px" />
+      {props.gender === "male" ? <img
+              src={adultBoy}
+              className="boy-image image-animate"
+              alt="male"
+            ></img>
+            : <img
+            src={adultGirl}
+            className="girl-image image-animate"
+            alt="female"
+          ></img> 
+     }
         <h4 className="walletCharCard-name">{props.name}</h4>
         <Hunger width={125} height={10} percent={props.percent} />
         <div className="walletCharCard-health">
@@ -99,7 +109,8 @@ const Wallet = (props) => {
           (Date.now() - parseInt(info.birthDate.toString()) * 1000) /
           (1000 * 60 * 60 * 24);
         if (age <= 60 || age >= 120) return;
-        const name = await fetchCharacter(val.toString());
+        var data = localStorage.getItem(parseInt(val.toString()));
+        const name = data.name;
         const cid = await tokenUri(val.toString());
         setCharList((prev) => [
           ...prev,

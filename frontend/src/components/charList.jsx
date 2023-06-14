@@ -44,11 +44,11 @@ const CharList = (props) => {
   const getTetheredToken = (index) => {
     switch (index) {
       case "0":
-        return "BIT";
-
-      case "1":
         return "DAI";
 
+      case "1":
+          return "BIT";
+  
       case "2":
         return "DSLA";
 
@@ -88,7 +88,8 @@ const CharList = (props) => {
           (Date.now() - parseInt(info.lastFed.toString()) * 1000) /
           (1000 * 60 * 60 * 24);
         console.log(val.toString());
-        const name = await fetchCharacter(val.toString());
+        var data = localStorage.getItem(parseInt(val.toString()))
+        const name = data.name;
         const cid = await tokenUri(val.toString());
         setChars((prev) => [
           ...prev,
